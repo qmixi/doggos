@@ -13,5 +13,5 @@ it('renders without crashing', () => {
 
 it('contains proper text', () => {
   const wrapper = shallow(<App/>);
-  expect(wrapper.find('h1').text()).to.equal('Welcome to React')
+  expect(wrapper.find('.App-title').text()).toBe('Welcome to React')
 });
