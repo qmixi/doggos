@@ -1,9 +1,9 @@
-import {LOAD_DOGGOS} from "../actions/types";
+import {LOAD_DOGGO} from "../actions/types";
 
 export default function (state = [], action = {}) {
 		switch (action.type) {
-				case LOAD_DOGGOS:
-						return [...action.payload];
+				case LOAD_DOGGO:
+						return [action.payload, ...state];
 
 				default:
 						return state;

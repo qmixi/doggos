@@ -3,19 +3,26 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from '../../actions';
+import './doggos-list.css';
 
 class DoggosListComponent extends Component {
 
 		render() {
-				const {doggos, fetchDoggos} = this.props;
+				const {doggos, fetchDoggo} = this.props;
+
+				const doggosList = doggos.map(doggo => (
+						<div key={doggo.message}>
+								<img style={{maxWidth: '300px', margin: '20px auto'}} src={doggo.message} alt={doggo.message}/>
+						</div>
+				));
 
 				return (
-						<div>
+						<div className='doggosList'>
 								<div>
-										<button onClick={() => fetchDoggos()}>fetch doggos</button>
+										<button onClick={() => fetchDoggo()}>fetch doggos</button>
 								</div>
-								<div>
-										{doggos.length && doggos.map(doggo => <div key={doggo.name}>{doggo.name}</div>)}
+								<div className='doggosList__list'>
+										{doggosList}
 								</div>
 						</div>
 				)

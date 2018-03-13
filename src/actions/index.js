@@ -1,23 +1,29 @@
-import {ERROR_DOGGOS, LOAD_DOGGOS} from "./types";
+import axios from 'axios';
 
-export function fetchDoggos() {
+import {ERROR_DOGGO, LOAD_DOGGO} from "./types";
+
+export function fetchDoggo() {
 		return dispatch => {
-				setTimeout(() => {
-						dispatch(loadDoggos([{name: 'doggo1'}, {name: 'doggo2'}]));
-				}, 1000);
+				axios.get('https://dog.ceo/api/breeds/image/random')
+						.then(response => {
+								dispatch(loadDoggo(response.data));
+						})
+						.catch(error => {
+								dispatch(errorDoggo(error));
+						});
 		}
 }
 
-export function loadDoggos(doggos) {
+export function loadDoggo(doggo) {
 		return {
-				type: LOAD_DOGGOS,
-				payload: doggos
+				type: LOAD_DOGGO,
+				payload: doggo
 		}
 }
 
-export function errorDoggos(error) {
+export function errorDoggo(error) {
 		return {
-				type: ERROR_DOGGOS,
+				type: ERROR_DOGGO,
 				payload: error
 		}
 }

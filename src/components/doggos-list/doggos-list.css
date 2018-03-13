@@ -1,0 +1,64 @@
+@keyframes move {
+	0% {
+		width: 300px;
+	}
+
+	50% {
+		width: 380px;
+	}
+
+	100% {
+		width: 300px;
+	}
+}
+
+@keyframes hue-loader {
+	0% {
+		filter: hue-rotate(-30deg);
+	}
+
+	50% {
+		filter: hue-rotate(140deg);
+	}
+
+	100% {
+		filter: hue-rotate(-30deg);
+	}
+}
+
+button {
+	width: 300px;
+	height: 30px;
+	color: white;
+	background: linear-gradient(45deg, #695bcc, #ffdccb);
+	animation: move 4s ease-out infinite;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	font-weight: 100;
+	font-family: sans-serif;
+	border: 0px;
+	cursor: pointer;
+}
+
+button:hover {
+	animation: move 4s ease-out infinite, hue-loader 4s ease-out infinite;
+}
+
+button:focus, button:active {
+	outline: none;
+}
+
+img {
+	box-shadow: 1px 1px 50px 6px #d7d5d5bf;
+	border: 32px solid white;
+}
+
+.doggosList {
+	padding: 20px;
+}
+
+.doggosList__list {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
