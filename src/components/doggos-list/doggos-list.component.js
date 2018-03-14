@@ -8,11 +8,11 @@ import './doggos-list.css';
 class DoggosListComponent extends Component {
 
 		render() {
-				const {doggos, fetchDoggo} = this.props;
+				const {doggos, fetchDoggo, removeDoggo} = this.props;
 
-				const doggosList = doggos.map(doggo => (
-						<div key={doggo.message}>
-								<img style={{maxWidth: '300px', margin: '20px auto'}} src={doggo.message} alt={doggo.message}/>
+				const doggosList = doggos.map((doggo, index) => (
+						<div className="doggosList__position" key={doggo.message}>
+								<img style={{maxWidth: '300px', margin: '20px auto'}} src={doggo.message} alt={doggo.message} onClick={() => removeDoggo(index)}/>
 						</div>
 				));
 

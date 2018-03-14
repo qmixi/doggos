@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {ERROR_DOGGO, LOAD_DOGGO} from "./types";
+import {ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO} from "./types";
 
 export function fetchDoggo() {
 		return dispatch => {
@@ -25,5 +25,12 @@ export function errorDoggo(error) {
 		return {
 				type: ERROR_DOGGO,
 				payload: error
+		}
+}
+
+export function removeDoggo(index) {
+		return {
+				type: REMOVE_DOGGO,
+				payload: index
 		}
 }
