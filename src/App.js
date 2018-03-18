@@ -8,7 +8,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 
 import reducers from './reducers';
 import Dashboard from './components/dashboard';
-import './App.css';
+import './styles/App.css';
 
 const store = createStore(
 		reducers,
