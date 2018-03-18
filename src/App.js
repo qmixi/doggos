@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import {BrowserRouter, Route} from 'react-router-dom';
 
-import DoggosListComponent from './components/doggos-list/doggos-list.component';
+
 import reducers from './reducers';
+import Dashboard from './components/dashboard';
 import './App.css';
 
 const store = createStore(
@@ -16,14 +19,11 @@ class App extends Component {
 		render() {
 				return (
 						<Provider store={store}>
-								<div className="App">
-										<header className="App-header">
-												<h1 className="App-title">Welcome to Doggos app</h1>
-										</header>
+								<BrowserRouter>
 										<div>
-												<DoggosListComponent/>
+												<Route path='/' component={Dashboard}/>
 										</div>
-								</div>
+								</BrowserRouter>
 						</Provider>
 				);
 		}
