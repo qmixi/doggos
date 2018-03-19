@@ -17,3 +17,24 @@
     color: #7364cd;
   }
 }
+
+.form {
+  max-width: 400px;
+  margin: auto;
+
+  &__group {
+    margin: 20px 0;
+
+    label {
+      display: inline-block;
+      max-width: 90px;
+      width: 100%;
+    }
+  }
+
+  &__input {
+    padding: 10px;
+    width: calc(100% - 115px);
+    background: white;
+  }
+}

@@ -19,7 +19,7 @@ class DoggosListComponent extends Component {
 				return (
 						<div className='doggosList'>
 								<div>
-										<button onClick={() => fetchDoggo()}>fetch doggos</button>
+										<button className="special-button" onClick={() => fetchDoggo()}>fetch doggos</button>
 								</div>
 								<div className='doggosList__list'>
 										{doggosList}

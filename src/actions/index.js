@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import {ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO} from "./types";
+import {apiPath} from "../utils/api-path";
 
 export function fetchDoggo() {
 		return dispatch => {
@@ -32,5 +33,16 @@ export function removeDoggo(index) {
 		return {
 				type: REMOVE_DOGGO,
 				payload: index
+		}
+}
+
+export function signIn({email, password}) {
+		return dispatch => {
+				axios.post(`${apiPath}signin`, {
+						email,
+						password
+				}).then((response) => {
+						const token = response.data.token;
+				});
 		}
 }
