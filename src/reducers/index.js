@@ -1,10 +1,12 @@
-import {combineReducers} from 'redux';
-import { reducer as form } from 'redux-form';
+import {combineReducers} from "redux";
+import { reducer as form } from "redux-form";
 
 import doggos from './doggos';
+import auth from './auth';
 
 
 export default combineReducers({
-		doggos: doggos,
+		doggos,
+		auth,
 		form
 });

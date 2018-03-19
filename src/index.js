@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import {composeWithDevTools} from "redux-devtools-extension";
 
 
@@ -13,6 +13,7 @@ import reducers from './reducers';
 import App from './App';
 import Dashboard from './components/dashboard';
 import Signin from './components/auth/signin';
+import history from './utils/history';
 import './index.css';
 
 
@@ -23,14 +24,14 @@ const store = createStore(
 
 ReactDOM.render(
 		<Provider store={store}>
-				<BrowserRouter>
+				<Router history={history}>
 						<App>
 								<Switch>
 										<Route exact path='/' component={Dashboard}/>
 										<Route path='/signin' component={Signin}/>
 								</Switch>
 						</App>
-				</BrowserRouter>
+				</Router>
 		</Provider>,
 		document.getElementById('root'));
 registerServiceWorker();

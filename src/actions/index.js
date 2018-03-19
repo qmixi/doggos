@@ -1,7 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-import {ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO} from "./types";
+import {ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO, SIGN_IN} from "./types";
 import {apiPath} from "../utils/api-path";
+import history from "../utils/history";
 
 export function fetchDoggo() {
 		return dispatch => {
@@ -43,6 +44,8 @@ export function signIn({email, password}) {
 						password
 				}).then((response) => {
 						const token = response.data.token;
+						dispatch({ type: SIGN_IN });
+						history.push('/gallery');
 				});
 		}
 }
