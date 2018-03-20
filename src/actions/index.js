@@ -51,13 +51,19 @@ export function signIn({email, password}) {
 		}
 }
 
+export function signUp({email, password}) {
+		// todo fill up this function
+}
+
 export function signOut() {
+		localStorage.removeItem('jwt-token');
 		return {
 				type: SIGN_OUT
 		}
 }
 
 export function authError(error) {
+		console.log('error', error);
 		return {
 				type: AUTH_ERROR,
 				payload: error

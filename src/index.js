@@ -14,6 +14,7 @@ import App from './App';
 import Dashboard from './components/dashboard';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
+import Signup from './components/auth/signup';
 import history from './utils/history';
 import './index.css';
 
@@ -31,6 +32,7 @@ ReactDOM.render(
 										<Route exact path='/' component={Dashboard}/>
 										<Route path='/signin' component={Signin}/>
 										<Route path='/signout' component={Signout}/>
+										<Route path='/signup' component={Signup}/>
 								</Switch>
 						</App>
 				</Router>
