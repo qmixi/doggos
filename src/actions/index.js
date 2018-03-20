@@ -52,7 +52,14 @@ export function signIn({email, password}) {
 }
 
 export function signUp({email, password}) {
-		// todo fill up this function
+		return dispatch => {
+				axios.post(`${apiPath}signup`, {
+						email,
+						password
+				}).then((response) => {
+						history.push('/signin')
+				});
+		}
 }
 
 export function signOut() {
@@ -63,7 +70,6 @@ export function signOut() {
 }
 
 export function authError(error) {
-		console.log('error', error);
 		return {
 				type: AUTH_ERROR,
 				payload: error
