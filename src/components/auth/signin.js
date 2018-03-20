@@ -24,13 +24,20 @@ class Signin extends Component {
 										<label>Password:</label>
 										<Field name="password" component="input" type="password" className="form__input"/>
 								</div>
+								{ this.props.auth.error && <div className="error">{ this.props.auth.error }</div> }
 								<button action="submit" className="btn btn--primary btn--block">Sign in</button>
 						</form>
 				)
 		}
 }
 
-Signin = connect(null, actions)(Signin);
+function mapStateToProps(state) {
+		return {
+				auth: state.auth
+		}
+}
+
+Signin = connect(mapStateToProps, actions)(Signin);
 
 export default reduxForm({
 		form: 'signin'
