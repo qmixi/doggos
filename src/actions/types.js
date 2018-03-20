@@ -10,7 +10,7 @@ export const REMOVE_DOGGO = 'remove-doggo';
 
 export const SIGN_IN = 'sign-in';
 
-export const SIGN_OUT = 'sign-in';
+export const SIGN_OUT = 'sign-out';
 
 export const SIGN_UP = 'sign-up';
 

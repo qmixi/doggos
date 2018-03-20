@@ -13,6 +13,7 @@ import reducers from './reducers';
 import App from './App';
 import Dashboard from './components/dashboard';
 import Signin from './components/auth/signin';
+import Signout from './components/auth/signout';
 import history from './utils/history';
 import './index.css';
 
@@ -29,6 +30,7 @@ ReactDOM.render(
 								<Switch>
 										<Route exact path='/' component={Dashboard}/>
 										<Route path='/signin' component={Signin}/>
+										<Route path='/signout' component={Signout}/>
 								</Switch>
 						</App>
 				</Router>

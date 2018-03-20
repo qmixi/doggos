@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {AUTH_ERROR, ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO, SIGN_IN} from "./types";
+import {AUTH_ERROR, ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO, SIGN_IN, SIGN_OUT} from "./types";
 import {apiPath} from "../utils/api-path";
 import history from "../utils/history";
 
@@ -45,9 +45,15 @@ export function signIn({email, password}) {
 				}).then((response) => {
 						const token = response.data.token;
 						localStorage.setItem('jwt-token', token);
-						dispatch({ type: SIGN_IN });
+						dispatch({type: SIGN_IN});
 						history.push('/gallery');
 				}, (error) => dispatch(authError('Please provide correct credentials.')));
+		}
+}
+
+export function signOut() {
+		return {
+				type: SIGN_OUT
 		}
 }
 
