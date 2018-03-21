@@ -37,28 +37,32 @@ export function removeDoggo(index) {
 		}
 }
 
+function onAuthSuccess(response) {
+		const token = response.data.token;
+		localStorage.setItem('jwt-token', token);
+		history.push('/gallery');
+}
+
 export function signIn({email, password}) {
 		return dispatch => {
-				axios.post(`${apiPath}signin`, {
-						email,
-						password
-				}).then((response) => {
-						const token = response.data.token;
-						localStorage.setItem('jwt-token', token);
-						dispatch({type: SIGN_IN});
-						history.push('/gallery');
-				}, (error) => dispatch(authError('Please provide correct credentials.')));
+				axios.post(`${apiPath}signin`, {email, password})
+						.then((response) => {
+								dispatch({type: SIGN_IN});
+								onAuthSuccess(response);
+						}, (error) => dispatch(authError('Please provide correct credentials.')));
 		}
 }
 
 export function signUp({email, password}) {
 		return dispatch => {
-				axios.post(`${apiPath}signup`, {
-						email,
-						password
-				}).then((response) => {
-						history.push('/signin')
-				});
+				axios.post(`${apiPath}signup`, {email, password})
+						.then((response) => {
+								dispatch({type: SIGN_IN});
+								onAuthSuccess(response);
+						})
+						.catch((error) => {
+								dispatch(authError(error.response.data.error))
+						});
 		}
 }
 

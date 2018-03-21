@@ -17,6 +17,7 @@ import Signout from './components/auth/signout';
 import Signup from './components/auth/signup';
 import history from './utils/history';
 import './index.css';
+import RequireAuth from './components/auth/require-auth';
 
 
 const store = createStore(
@@ -29,10 +30,11 @@ ReactDOM.render(
 				<Router history={history}>
 						<App>
 								<Switch>
-										<Route exact path='/' component={Dashboard}/>
+										<Route exact path='/' component={RequireAuth(Dashboard)}/>
 										<Route path='/signin' component={Signin}/>
 										<Route path='/signout' component={Signout}/>
 										<Route path='/signup' component={Signup}/>
+										<Route path='/gallery' component={RequireAuth(Dashboard)}/>
 								</Switch>
 						</App>
 				</Router>

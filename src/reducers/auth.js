@@ -5,7 +5,7 @@ export default function (state = {}, action = {}) {
 				case SIGN_IN:
 						return { ...state, authenticated: true, error: '' };
 				case SIGN_OUT:
-						return { ...state, authenticated: false };
+						return { ...state, authenticated: false, error: '' };
 				case AUTH_ERROR:
 						return { ...state, error: action.payload };
 				default:
