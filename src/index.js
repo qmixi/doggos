@@ -18,12 +18,17 @@ import Signup from './components/auth/signup';
 import history from './utils/history';
 import './index.css';
 import RequireAuth from './components/auth/require-auth';
-
+import {SIGN_IN} from "./actions/types";
 
 const store = createStore(
 		reducers,
 		composeWithDevTools(applyMiddleware(thunk))
 );
+
+const token = localStorage.getItem('jwt-token');
+if (token) {
+		store.dispatch({ type: SIGN_IN });
+}
 
 ReactDOM.render(
 		<Provider store={store}>
