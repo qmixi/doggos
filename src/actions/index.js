@@ -3,6 +3,7 @@ import axios from "axios";
 import {AUTH_ERROR, ERROR_DOGGO, LOAD_DOGGO, REMOVE_DOGGO, SIGN_IN, SIGN_OUT} from "./types";
 import {apiPath} from "../utils/api-path";
 import history from "../utils/history";
+import getHeaders from "../components/auth/request-headers";
 
 export function fetchDoggo() {
 		return dispatch => {
@@ -77,5 +78,17 @@ export function authError(error) {
 		return {
 				type: AUTH_ERROR,
 				payload: error
+		}
+}
+
+export function fetchMessage() {
+		return dispatch => {
+				axios.get(`${apiPath}feature`, {
+						headers: getHeaders()
+				}).then((response) => {
+					// we did it boys
+				}).catch((error) => {
+						dispatch(authError(error.response.data.error))
+				});
 		}
 }

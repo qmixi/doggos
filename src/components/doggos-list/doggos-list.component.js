@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import * as actions from '../../actions';
 import '../../styles/doggos-list.css';
+import {fetchMessage} from "../../actions/index";
 
 class DoggosListComponent extends Component {
 
@@ -12,14 +13,19 @@ class DoggosListComponent extends Component {
 
 				const doggosList = doggos.map((doggo, index) => (
 						<div className="doggosList__position" key={doggo.message}>
-								<img style={{maxWidth: '300px', margin: '20px auto'}} src={doggo.message} alt={doggo.message} onClick={() => removeDoggo(index)}/>
+								<img style={{maxWidth: '300px', margin: '20px auto'}} src={doggo.message} alt={doggo.message}
+										 onClick={() => removeDoggo(index)}/>
 						</div>
 				));
 
 				return (
 						<div className='doggosList'>
 								<div>
-										<button className="special-button" onClick={() => fetchDoggo()}>fetch doggos</button>
+										<button className="special-button" onClick={() => {
+												this.props.fetchDoggo();
+												this.props.fetchMessage()
+										}}>fetch doggos
+										</button>
 								</div>
 								<div className='doggosList__list'>
 										{doggosList}
