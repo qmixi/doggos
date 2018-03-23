@@ -53,3 +53,35 @@ body {
     width: 100%;
   }
 }
+
+.sign-out {
+  background: linear-gradient(45deg, #7297ff, #5eb7f6, #ff00f7a1);
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  padding: 50px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(45deg, rgba(89, 173, 252, 0.74), #329dff) !important;
+
+  &__title {
+    padding: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+  }
+}
+
+.error {
+  color: #ff8080;
+  padding-bottom: 18px;
+}
